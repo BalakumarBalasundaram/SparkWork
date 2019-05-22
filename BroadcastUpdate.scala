@@ -1,9 +1,4 @@
-**
-  * This wrapper lets us update brodcast variables within DStreams' foreachRDD
-  * without running into serialization issues
-  * @param ssc
-  * @param _v
-  */
+
 case class BroadcastWrapper[T: ClassTag](
                                           @transient private val ssc: StreamingContext,
                                           @transient private val _v: T) {
