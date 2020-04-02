@@ -6,7 +6,6 @@ case class BroadcastWrapper[T: ClassTag](
   @transient private var v = ssc.sparkContext.broadcast(_v)
 
   def update(newValue: T, blocking: Boolean = false): Unit = {
-    // 删除RDD是否需要锁定
     v.unpersist(blocking)
     v = ssc.sparkContext.broadcast(newValue)
   }
