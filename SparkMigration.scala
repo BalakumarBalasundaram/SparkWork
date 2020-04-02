@@ -45,8 +45,8 @@ object SparkStreamKafka {
         "group.id" -> "test",
         "key.deserializer" -> classOf[StringDeserializer],
         "value.deserializer" -> classOf[StringDeserializer],
-        "metadata.broker.list" -> "hklvadcnc03.hk.standardchartered.com:6667,hklvadcnc06.hk.standardchartered.com:6667",
-        "zookeeper.connect" -> "10.20.174.132")
+        "metadata.broker.list" -> "",
+        "zookeeper.connect" -> "")
 
       val sc = new StreamingContext(spark.sparkContext, Seconds(5))
       val line = KafkaUtils.createDirectStream[String, String](
